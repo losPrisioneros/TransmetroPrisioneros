@@ -1,16 +1,202 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Mapa</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>coloquen el mapa dentro de un div aquí</div>
+        <div>...</div>
+        <div>
+
+            <div id="map" style="width: 500px; height: 400px;"></div>
+            <script>
+                var bus1 = 'BUS1.png';
+                var ubicacionBus1 = new google.maps.LatLng(7.137102, -73.120316);
+                var bus2 = 'BUS2.png';
+                var ubicacionBus2 = new google.maps.LatLng(7.134479, -73.117695);
+                var bus3 = 'BUS3.png';
+                var ubicacionBus3 = new google.maps.LatLng(7.120446, -73.131550);
+                var bus4 = 'BUS4.png';
+                var ubicacionBus4 = new google.maps.LatLng(7.118873, -73.115625);
+
+                var estacion = 'estacion.png';
+                var ubicacionEstacion1ruta1 = new google.maps.LatLng(7.137102, -73.120316);
+                var ubicacionEstacion2ruta1 = new google.maps.LatLng(7.127949, -73.119356);
+                var ubicacionEstacion3ruta1 = new google.maps.LatLng(7.107438, -73.114105);
+                
+                var ubicacionEstacion1ruta2 = new google.maps.LatLng(7.134479, -73.117695);
+                var ubicacionEstacion2ruta2 = new google.maps.LatLng(7.127956, -73.111854);
+                var ubicacionEstacion3ruta2 = new google.maps.LatLng(7.104044, -73.110563);
+                
+                var ubicacionEstacion1ruta3 = new google.maps.LatLng(7.138796, -73.120385);
+                var ubicacionEstacion2ruta3 = new google.maps.LatLng(7.120446, -73.131550);
+                var ubicacionEstacion3ruta3 = new google.maps.LatLng(7.112452, -73.129751);
+                
+                function initMap() {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 7.137438, lng: -73.120402},
+                        zoom: 15,
+                        mapTypeId: google.maps.MapTypeId.HYBRID
+                    });
+
+                    var marcadorBus1 = new google.maps.Marker({
+                        position: ubicacionBus1,
+                        title: "Bus 1",
+                        map: map,
+                        icon: bus1
+                    });
+                    var marcadorBus2 = new google.maps.Marker({
+                        position: ubicacionBus2,
+                        title: "Bus 2",
+                        map: map,
+                        icon: bus2
+                    });
+                    var marcadorBus3 = new google.maps.Marker({
+                        position: ubicacionBus3,
+                        title: "Bus 3",
+                        map: map,
+                        icon: bus3
+                    });
+                    var marcadorBus4 = new google.maps.Marker({
+                        position: ubicacionBus4,
+                        title: "Bus 4",
+                        map: map,
+                        icon: bus4
+                    });
+                    
+                    var marcadorEstacion1ruta1 = new google.maps.Marker({
+                        position: ubicacionEstacion1ruta1,
+                        title: "E1R1",
+                        map: map,
+                        icon: estacion
+                    });
+                    var marcadorEstacion2ruta1 = new google.maps.Marker({
+                        position: ubicacionEstacion2ruta1,
+                        title: "E2R1",
+                        map: map,
+                        icon: estacion
+                    });
+                    var marcadorEstacion3ruta1 = new google.maps.Marker({
+                        position: ubicacionEstacion3ruta1,
+                        title: "E3R1",
+                        map: map,
+                        icon: estacion
+                    });
+                    
+                    var marcadorEstacion1ruta2 = new google.maps.Marker({
+                        position: ubicacionEstacion1ruta2,
+                        title: "E1R2",
+                        map: map,
+                        icon: estacion
+                    });
+                    var marcadorEstacion2ruta2 = new google.maps.Marker({
+                        position: ubicacionEstacion2ruta2,
+                        title: "E2R2",
+                        map: map,
+                        icon: estacion
+                    });
+                    var marcadorEstacion3ruta2 = new google.maps.Marker({
+                        position: ubicacionEstacion3ruta2,
+                        title: "E3R2",
+                        map: map,
+                        icon: estacion
+                    });
+                    
+                    var marcadorEstacion1ruta3 = new google.maps.Marker({
+                        position: ubicacionEstacion1ruta3,
+                        title: "E1R3",
+                        map: map,
+                        icon: estacion
+                    });
+                    var marcadorEstacion2ruta3 = new google.maps.Marker({
+                        position: ubicacionEstacion2ruta3,
+                        title: "E2R3",
+                        map: map,
+                        icon: estacion
+                    });
+                    var marcadorEstacion3ruta3 = new google.maps.Marker({
+                        position: ubicacionEstacion3ruta3,
+                        title: "E3R3",
+                        map: map,
+                        icon: estacion
+                    });
+                    
+
+                    var ruta1 = [
+                        {lat: 7.137102, lng: -73.120316},
+                        {lat: 7.134617, lng: -73.120313},
+                        {lat: 7.130504, lng: -73.119703},
+                        {lat: 7.127949, lng: -73.119356},
+                        {lat: 7.127286, lng: -73.119203},
+                        {lat: 7.122932, lng: -73.117179},
+                        {lat: 7.118873, lng: -73.115625},
+                        {lat: 7.107438, lng: -73.114105}
+                    ];
+
+                    var ruta2 = [
+                        {lat: 7.134479, lng: -73.117695},
+                        {lat: 7.134276, lng: -73.112585},
+                        {lat: 7.130545, lng: -73.112817},
+                        {lat: 7.127956, lng: -73.111854},
+                        {lat: 7.125512, lng: -73.112664},
+                        {lat: 7.106588, lng: -73.109369},
+                        {lat: 7.104044, lng: -73.110563}
+                    ];
+                    var ruta3 = [
+                        {lat: 7.138796, lng: -73.120385},
+                        {lat: 7.136582, lng: -73.131607},
+                        {lat: 7.135262, lng: -73.131006},
+                        {lat: 7.123569, lng: -73.128672},
+                        {lat: 7.122682, lng: -73.128525},
+                        {lat: 7.122086, lng: -73.128890},
+                        {lat: 7.121699, lng: -73.129676},
+                        {lat: 7.121611, lng: -73.130310},
+                        {lat: 7.121069, lng: -73.131461},
+                        {lat: 7.120832, lng: -73.131811},
+                        {lat: 7.120601, lng: -73.131809},
+                        {lat: 7.120446, lng: -73.131550},
+                        {lat: 7.120234, lng: -73.131245},
+                        {lat: 7.119905, lng: -73.131133},
+                        {lat: 7.119626, lng: -73.131151},
+                        {lat: 7.118819, lng: -73.131269},
+                        {lat: 7.118457, lng: -73.131322},
+                        {lat: 7.117843, lng: -73.131590},
+                        {lat: 7.117683, lng: -73.131598},
+                        {lat: 7.116068, lng: -73.131118},
+                        {lat: 7.114606, lng: -73.130505},
+                        {lat: 7.112452, lng: -73.129751}
+                    ];
+                    var trazo1 = new google.maps.Polyline({
+                        path: ruta1,
+                        geodesic: true,
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+                    var trazo2 = new google.maps.Polyline({
+                        path: ruta2,
+                        geodesic: true,
+                        strokeColor: '#00FF00',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+                    var trazo3 = new google.maps.Polyline({
+                        path: ruta3,
+                        geodesic: true,
+                        strokeColor: '#0000FF',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+                    trazo1.setMap(map);
+                    trazo2.setMap(map);
+                    trazo3.setMap(map);
+                }
+
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+
+
+        </div>
     </body>
 </html>
