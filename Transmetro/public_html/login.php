@@ -8,35 +8,42 @@ and open the template in the editor.
     <head> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/styleForm.css" rel="stylesheet"/> 
         <title>Autentificación PHP</title> 
+        
     </head> 
     <body> 
-        <form action="valida_usuario.php" method="POST"> 
+        <div class="login">
+            <form action="valida_usuario.php" method="POST"> 
+                <div class="login-head">
 
-            <?php
-            if (isset($_GET["errorusuario"]) == "si") {
-                ?> 
-                <b>Datos incorrectos</b> 
-                <?php
-            } else {
-                ?> 
-                <div>Introduca sus claves de acceso</div> 
-                <?php
-            }
-            ?>
-            <label id="usuario">Nombre:</label>
+                    <?php
+                    if (isset($_GET["errorusuario"]) == "si") {
+                        ?> 
+                        <b>Datos incorrectos</b> 
+                        <?php
+                    } else {
+                        ?> 
+                        <div>Login</div> 
+                        <?php
+                    }
+                    ?>
+                </div>
+                <div class="login-body">
+                    <label id="usuario">Nombre:</label>
 
-            <input type="Text" name="usuario" size="8" maxlength="50">
-
-
-           <label id="usuario">Contraseña:</label>
-
-            <input type="password" name="clave" size="8" maxlength="50">
-
-
-            <input type="Submit" value="ENTRAR">
+                    <input type="Text" name="usuario" size="8" maxlength="50">
 
 
-        </form> 
+                    <label id="usuario">Contraseña:</label>
+
+                    <input type="password" name="clave" size="8" maxlength="50">
+
+
+                    <input type="Submit" value="ENTRAR">
+
+                </div>
+            </form> 
+        </div>
     </body> 
 </html> 
