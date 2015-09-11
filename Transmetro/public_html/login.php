@@ -19,7 +19,7 @@ and open the template in the editor.
                 <?php
                 if (isset($_GET["errorusuario"]) == "si") {
                     ?> 
-                    <b>Datos incorrectos</b> 
+                <div><b>Datos incorrectos</b> </div>
                     <?php
                 } else {
                     ?> 
@@ -29,7 +29,7 @@ and open the template in the editor.
                 ?>
             </div>
             <div class="login-body">
-                <form action="valida_usuario.php" method="POST"> 
+                <form action="42cda.php" method="POST"> 
 
                     <label id="usuario">Nombre de Usuario:</label>
 
