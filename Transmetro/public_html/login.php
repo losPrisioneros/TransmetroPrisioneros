@@ -10,40 +10,44 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/styleForm.css" rel="stylesheet"/> 
         <title>Autentificación PHP</title> 
-        
+
     </head> 
     <body> 
         <div class="login">
-            <form action="valida_usuario.php" method="POST"> 
-                <div class="login-head">
+            <div class="login-head">
 
+                <?php
+                if (isset($_GET["errorusuario"]) == "si") {
+                    ?> 
+                    <b>Datos incorrectos</b> 
                     <?php
-                    if (isset($_GET["errorusuario"]) == "si") {
-                        ?> 
-                        <b>Datos incorrectos</b> 
-                        <?php
-                    } else {
-                        ?> 
-                        <div>Login</div> 
-                        <?php
-                    }
-                    ?>
-                </div>
-                <div class="login-body">
-                    <label id="usuario">Nombre:</label>
+                } else {
+                    ?> 
+                    <div>Login</div> 
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="login-body">
+                <form action="valida_usuario.php" method="POST"> 
 
-                    <input type="Text" name="usuario" size="8" maxlength="50">
+                    <label id="usuario">Nombre de Usuario:</label>
+
+                    <div class="item"><input type="Text" name="usuario" class="input" ></div>
 
 
                     <label id="usuario">Contraseña:</label>
 
-                    <input type="password" name="clave" size="8" maxlength="50">
+                    <div class="item"><input type="password" name="pass" class="input" ></div>
 
+                    <h6>
+                        <a href="http://www.facebook.com">¿Olvidaste tu contraseña?</a>
+                    </h6>
 
-                    <input type="Submit" value="ENTRAR">
+                    <div> <input type="Submit" value="ENTRAR"></div>
+                </form> 
+            </div>
 
-                </div>
-            </form> 
         </div>
     </body> 
 </html> 

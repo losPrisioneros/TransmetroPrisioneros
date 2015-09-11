@@ -7,4 +7,59 @@ and open the template in the editor.
     Created on : 8/09/2015, 01:25:30 PM
     Author     : carpe
 */
+body{
+    background: #D1D101;
+}
+.login{
+    
+    width: 280px  ;
+    padding: 5px;
+    height: auto;
+ 
+    box-shadow: 1px 1px 4px black;
+}
 
+.login-head{
+    
+    padding: 5px;
+    height: 30px;
+    width: 270px;    
+    background: #2E2EFE;
+    border-radius: 3px 3px 0px 0px;
+    border: 1px solid black;
+}
+
+.login-head div{
+    margin-top: 5px;
+    text-align: center;
+    color: #D1D101;
+    font-family: Arial;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px black ;
+    
+}
+.login-body{
+    padding: 25px;
+    height: auto;
+    width: 230px;  
+    background: white;
+    border:1px solid black;
+    border-top:0px;
+    border-radius: 0px 0px 3px 3px;
+    
+}
+
+.login-body{
+     font-family: Arial;
+    
+}
+.item{
+    margin-bottom:  20px;
+    
+}
+.input{
+   
+    height:20px;
+    width:  100%;
+   
+}
