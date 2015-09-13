@@ -5,20 +5,66 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body onLoad="setInterval('initMap()',5000);">
         <div>...</div>
         <div>
 
-            <div id="map" style="width: 500px; height: 400px;"></div>
+            <div id="map" style="width: 500px; height: 500px;"></div>
             <script>
+                var k = 0;
+                
                 var bus1 = 'image/BUS1.png';
-                var ubicacionBus1 = {lat: 7.137102, lng: -73.120316};
+                var ubicacionBus111 = new Array();
+                ubicacionBus111[0] = {lat: 7.137102, lng: -73.120316};
+                ubicacionBus111[1] = {lat: 7.134617, lng: -73.120313}; 
+                ubicacionBus111[2] = {lat: 7.130504, lng: -73.119703}; 
+                ubicacionBus111[3] = {lat: 7.127949, lng: -73.119356}; 
+                ubicacionBus111[4] = {lat: 7.127286, lng: -73.119203}; 
+                ubicacionBus111[5] = {lat: 7.122932, lng: -73.117179}; 
+                ubicacionBus111[6] = {lat: 7.118873, lng: -73.115625}; 
+                ubicacionBus111[7] = {lat: 7.107438, lng: -73.114105}; 
+                ubicacionBus111[8] = {lat: 7.107438, lng: -73.114105}; 
+                ubicacionBus111[9] = {lat: 7.107438, lng: -73.114105};
+                        
                 var bus2 = 'image/BUS2.png';
-                var ubicacionBus2 = {lat: 7.134479, lng: -73.117695};
+                var ubicacionBus211 = new Array();
+                ubicacionBus211[0] = {lat: 7.134479, lng: -73.117695};
+                ubicacionBus211[1] = {lat: 7.134479, lng: -73.117695}; 
+                ubicacionBus211[2] = {lat: 7.130545, lng: -73.112817}; 
+                ubicacionBus211[3] = {lat: 7.130545, lng: -73.112817};
+                ubicacionBus211[4] = {lat: 7.130545, lng: -73.112817}; 
+                ubicacionBus211[5] = {lat: 7.130545, lng: -73.112817}; 
+                ubicacionBus211[6] = {lat: 7.127956, lng: -73.111854}; 
+                ubicacionBus211[7] = {lat: 7.125512, lng: -73.112664}; 
+                ubicacionBus211[8] = {lat: 7.106588, lng: -73.109369}; 
+                ubicacionBus211[9] = {lat: 7.104044, lng: -73.110563}; 
+                
                 var bus3 = 'image/BUS3.png';
-                var ubicacionBus3 = {lat: 7.120446, lng: -73.131550};
+                var ubicacionBus311 = new Array();
+                       
+                ubicacionBus311[0] = {lat: 7.136582, lng: -73.131607};
+                ubicacionBus311[1] = {lat: 7.135262, lng: -73.131006}; 
+                ubicacionBus311[2] = {lat: 7.123569, lng: -73.128672}; 
+                ubicacionBus311[3] = {lat: 7.122682, lng: -73.128525}; 
+                ubicacionBus311[4] = {lat: 7.122086, lng: -73.128890}; 
+                ubicacionBus311[5] = {lat: 7.121699, lng: -73.129676}; 
+                ubicacionBus311[6] = {lat: 7.121611, lng: -73.130310}; 
+                ubicacionBus311[7] = {lat: 7.121069, lng: -73.131461}; 
+                ubicacionBus311[8] = {lat: 7.120832, lng: -73.131811}; 
+                ubicacionBus311[9] = {lat: 7.120601, lng: -73.131809};
                 var bus4 = 'image/BUS4.png';
-                var ubicacionBus4 = {lat: 7.118873, lng: -73.115625};
+                
+                var ubicacionBus411= new Array();
+                ubicacionBus411[0] = {lat: 7.120446, lng: -73.131550};
+                ubicacionBus411[1] = {lat: 7.120234, lng: -73.131245}; 
+                ubicacionBus411[2] = {lat: 7.119905, lng: -73.131133}; 
+                ubicacionBus411[3] = {lat: 7.119626, lng: -73.131151}; 
+                ubicacionBus411[4] = {lat: 7.118819, lng: -73.131269}; 
+                ubicacionBus411[5] = {lat: 7.118457, lng: -73.131322}; 
+                ubicacionBus411[6] = {lat: 7.117843, lng: -73.131590}; 
+                ubicacionBus411[7] = {lat: 7.117683, lng: -73.131598}; 
+                ubicacionBus411[8] = {lat: 7.116068, lng: -73.131118}; 
+                ubicacionBus411[9] =  {lat: 7.114606, lng: -73.130505};
 
                 var estacion = 'image/estacion.png';
                 var ubicacionEstacion1ruta1 = {lat: 7.137102, lng: -73.120316};
@@ -32,37 +78,69 @@
                 var ubicacionEstacion1ruta3 = {lat: 7.138796, lng: -73.120385};
                 var ubicacionEstacion2ruta3 = {lat: 7.120446, lng: -73.131550};
                 var ubicacionEstacion3ruta3 = {lat: 7.112452, lng: -73.129751};
+                
+                function ubicacionBus1() {
+                    ubicacionBus11 = ubicacionBus111[k]
+                    return ubicacionBus11 
+                    
+                }
+                
+                function ubicacionBus2() {
+                    
+                    ubicacionBus21 = ubicacionBus211[k]
+                    return ubicacionBus21 
+                    
+                }
+                
+                function ubicacionBus3() {
+                    
+                    ubicacionBus31 = ubicacionBus311[k]
+                    return ubicacionBus31
+                    
+                }
+                
+                function ubicacionBus4() {
+                    
+                    ubicacionBus41 = ubicacionBus411[k]
+                    return ubicacionBus41
+                    
+                }
 
                 function initMap() {
+                    k++;
+                    if (k > 9) {
+                    k = 0;
+                    }
                     var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {lat: 7.137438, lng: -73.120402},
-                        zoom: 15,
+                        center: {lat: 7.12053219, lng: -73.1177568},
+                    
+                        zoom: 14,
                         mapTypeId: google.maps.MapTypeId.HYBRID
                     });
 
                     var marcadorBus1 = new google.maps.Marker({
-                        position: ubicacionBus1,
+                        position: ubicacionBus1(),
                         title: "Bus 1",
                         map: map,
                         icon: bus1
                     });
                     marcadorBus1.setMap(map);
                     var marcadorBus2 = new google.maps.Marker({
-                        position: ubicacionBus2,
+                        position: ubicacionBus2(),
                         title: "Bus 2",
                         map: map,
                         icon: bus2
                     });
                     marcadorBus2.setMap(map);
                     var marcadorBus3 = new google.maps.Marker({
-                        position: ubicacionBus3,
+                        position: ubicacionBus3(),
                         title: "Bus 3",
                         map: map,
                         icon: bus3
                     });
                     marcadorBus3.setMap(map);
                     var marcadorBus4 = new google.maps.Marker({
-                        position: ubicacionBus4,
+                        position: ubicacionBus4(),
                         title: "Bus 4",
                         map: map,
                         icon: bus4
@@ -194,12 +272,21 @@
                     trazo1.setMap(map);
                     trazo2.setMap(map);
                     trazo3.setMap(map);
+                    
+                    
+                  
                 }
+                
+                
+            
 
             </script>
+    
+            
             <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 
-
+            
         </div>
+        
     </body>
 </html>
