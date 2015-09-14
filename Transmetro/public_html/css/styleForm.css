@@ -8,19 +8,20 @@ and open the template in the editor.
     Author     : carpe
 */
 body{
-    background: #D1D101;
+    background: #f5f5dc;
 }
 .login{
-    
+
+    margin: 0 auto;
     width: 280px  ;
     padding: 5px;
     height: auto;
- 
     box-shadow: 1px 1px 4px black;
+    background: #D1D101;
 }
 
 .login-head{
-    
+
     padding: 5px;
     height: 30px;
     width: 270px;    
@@ -36,7 +37,7 @@ body{
     font-family: Arial;
     font-weight: bold;
     text-shadow: 1px 1px 4px black ;
-    
+
 }
 .login-body{
     padding: 25px;
@@ -46,20 +47,45 @@ body{
     border:1px solid black;
     border-top:0px;
     border-radius: 0px 0px 3px 3px;
-    
+
 }
 
 .login-body{
-     font-family: Arial;
-    
+    font-family: Arial;
+
 }
 .item{
     margin-bottom:  20px;
-    
+
 }
 .input{
-   
+
     height:20px;
     width:  100%;
-   
+
+}
+.page-scroll ul{
+
+    margin-left: -175px;
+    padding: 25px;
+    width: 250px;
+    color: white; 
+    background: #5882FA;
+    box-shadow: 5px 5px 10px black;
+    border: 1px solid black;
+    
+    list-style: none;
+    display: none;
+    position: absolute;
+    alignment-adjust: text-after-edge;
+
+}
+.page-scroll:hover ul   {
+    display:block;
+}
+
+.boton{
+    margin-top:  10px;
+    color:black;
+
 }
