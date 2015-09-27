@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : carpe
 */
 body{
-    background: #f5f5dc;
+    background: #5882FA;
 }
 .login{
 
@@ -17,7 +17,7 @@ body{
     padding: 5px;
     height: auto;
     box-shadow: 1px 1px 4px black;
-    background: #D1D101;
+    background: #F6E3CE;
 }
 
 .login-head{
@@ -88,4 +88,21 @@ body{
     margin-top:  10px;
     color:black;
 
+}
+.CBB{
+    //contenedor de checkbox
+    margin: 0 auto;
+    
+    height: 50px;
+    width: 270px;
+}
+
+
+.checkroute{
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    font-family: arial;
+    background: #F5ECCE;
+    border-radius: 5px;
 }

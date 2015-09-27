@@ -27,7 +27,7 @@ $query = "SELECT * FROM usuarios WHERE uss='".$usuario."' and pwd='".$pass."' ";
                 $_SESSION["apellidos"]= $apellidos;
                 $_SESSION["nombres"]= $nombre1;
                                                
-                header("Location: index.php?entro=si");
+                header("Location: index.php");
                     exit();     
                 
                 }

@@ -61,26 +61,12 @@ session_start();
                         <li class="page-scroll">
                             <a href="#contact">Contacto</a>
                         </li><?PHP
-                        if (empty($_SESSION["usuario"])) 
-                            {
+                        if (empty($_SESSION["usuario"])) {
                             echo '<li
                         class = "page-scroll">
                         <a href = "login.php">Login</a>
-                        <div>
-                        <ul class = "level2">
-                        <li>
-                        <form method = "POST" action = "42cda.php" >
-                        <label>Usuario:</label>
-                        <div> <input type = "text" name = "usuario"></div>
-                        <label>Contraseña</label>
-                        <div> <input type = "password" name = "pass"></div>
-                        <input type = "submit" value = "Login" class = "boton">
-
-                        </form>
-                        </li>
-                        </ul>
-
-                        </div>
+                        
+                        
                         </li>';
                         } else {
                             echo '<li
@@ -401,7 +387,24 @@ session_start();
 
 
                             </div>
+                            <?PHP
+                            
+                            if(!empty($_SESSION["usuario"]) || isset($_GET["entro"]) == "si") {
+                                echo  '  <div class="CBB">
+                            <div class="checkroute">
+                                <input type="checkbox" name="routes" value="ruta1"  checked/> Ruta 1
+                            </div>
+                            <div class="checkroute">
+                                <input type="checkbox" name="routes" value="ruta2"  checked/> Ruta 2
+                            </div>
+                            <div class="checkroute">
+                                <input type="checkbox" name="routes" value="ruta3" checked/> Ruta 3
+                            </div>
+                          </div>';
+                            }
+                            ?>
                         </center>
+                        
                     </div>
                 </div>
                 <div class="row">
@@ -421,10 +424,11 @@ session_start();
                         <h2>Asministracion</h2>
                         <hr class="star-light">
                         <p> <?PHP
-                            if(!empty($_SESSION["usuario"])){
-                            echo "Bienvenido: ", $_SESSION["usuario"];}
-                            
+                            if (!empty($_SESSION["usuario"])) {
+                                echo "Bienvenido: ", $_SESSION["usuario"];
+                            }
                             ?>
+
                         </p>
                         <p><?PHP
                             echo $_SESSION["nombres"], " ", $_SESSION["apellidos"];
