@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : carpe
 */
 body{
-    background: #5882FA;
+    background: #04B4AE;
 }
 .login{
 
@@ -17,7 +17,7 @@ body{
     padding: 5px;
     height: auto;
     box-shadow: 1px 1px 4px black;
-    background: #F6E3CE;
+    background: #01A9DB;
 }
 
 .login-head{
@@ -25,7 +25,7 @@ body{
     padding: 5px;
     height: 30px;
     width: 270px;    
-    background: #2E2EFE;
+    background: #0B4C5F;
     border-radius: 3px 3px 0px 0px;
     border: 1px solid black;
 }
@@ -33,7 +33,7 @@ body{
 .login-head div{
     margin-top: 5px;
     text-align: center;
-    color: #D1D101;
+    color: white;
     font-family: Arial;
     font-weight: bold;
     text-shadow: 1px 1px 4px black ;
