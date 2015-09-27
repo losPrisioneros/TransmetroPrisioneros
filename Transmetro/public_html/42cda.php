@@ -1,11 +1,13 @@
 <?PHP
 ini_set('display_errors','On');
     ini_set('display_errors',1);
+    header("Content-Type: text/html;charset=utf-8");
 
 session_start();
-mysql_connect('mysql.smartfreehosting.net', 'u194881207_root', 'transmetrodb') ;
-mysql_select_db("u194881207_tmdb")or die ("No se pudo conectar a la base de datos") ;
+mysql_connect('localhost', 'root', 'root') ;
+mysql_select_db("transmetro")or die ("No se pudo conectar a la base de datos") ;
 extract($_POST);
+$acentos = mysql_query("SET NAMES 'utf8'");
 
 $query = "SELECT * FROM usuarios WHERE uss='".$usuario."' and pwd='".$pass."' ";
 
@@ -18,12 +20,14 @@ $query = "SELECT * FROM usuarios WHERE uss='".$usuario."' and pwd='".$pass."' ";
                 else
                 {
                 $row1 = mysql_fetch_array($result1,MYSQL_ASSOC);
-                $tipo_usuario1 = $row1["tipo_usuario"];
-                $nombre1 = $row1["nombre"];
+                $usuario1 = $row1["uss"];
+                $nombre1 = $row1["nombres"];
+                $apellidos = $row1["apellidos"];
                 $_SESSION["usuario"] =$usuario; 
-                $_SESSION["pass"]= $pass;
+                $_SESSION["apellidos"]= $apellidos;
+                $_SESSION["nombres"]= $nombre1;
                                                
-                header("Location: index.html?entro=si");
+                header("Location: index.php?entro=si");
                     exit();     
                 
                 }
