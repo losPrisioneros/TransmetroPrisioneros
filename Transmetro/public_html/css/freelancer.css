@@ -1,3 +1,4 @@
+
 /*!
  * Start Bootstrap - Freelancer Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -244,7 +245,7 @@ section.success a.active {
 }
 
 #portfolio * {
-    z-index: 2;
+    /*z-index: 2;*/
 }
 
 @media(min-width:767px) {

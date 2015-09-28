@@ -15,22 +15,24 @@ session_start();
 
         <title>Transmetro</title>
 
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
         <!-- css login-->
         <link href="css/styleForm.css" rel="stylesheet"/> 
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
         <link href="css/freelancer.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-
     </head>
-
-    <body id="page-top" class="index" onLoad="setInterval('initMap()', 5000);">
+    <script type="text/javascript"> 
+        window.mapColor1 = "#FF0000";
+        window.mapColor2 = "#00FF00";
+        window.mapColor3 = "#0000FF";
+    </script>
+    <body id="page-top" class="index" onLoad="setInterval('initMap()', 20000);">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -108,12 +110,11 @@ session_start();
                         <h2>Mapa</h2>
                         <hr class="star-primary">
 
-                        <center>     <div>
+                        <center> <div>
 
                                 <div id="map" style="width: 500px; height: 500px;"></div>
                                 <script>
                                     var k = 0;
-
                                     var bus1 = 'img/BUS1.png';
                                     var ubicacionBus111 = new Array();
                                     ubicacionBus111[0] = {lat: 7.137102, lng: -73.120316};
@@ -348,33 +349,33 @@ session_start();
                                             {lat: 7.114606, lng: -73.130505},
                                             {lat: 7.112452, lng: -73.129751}
                                         ];
+
+                                         
+
                                         var trazo1 = new google.maps.Polyline({
                                             path: ruta1,
                                             geodesic: true,
-                                            strokeColor: '#FF0000',
+                                            strokeColor: window.mapColor1,
                                             strokeOpacity: 1.0,
                                             strokeWeight: 2
                                         });
                                         var trazo2 = new google.maps.Polyline({
                                             path: ruta2,
                                             geodesic: true,
-                                            strokeColor: '#00FF00',
+                                            strokeColor: window.mapColor2,
                                             strokeOpacity: 1.0,
                                             strokeWeight: 2
                                         });
                                         var trazo3 = new google.maps.Polyline({
                                             path: ruta3,
                                             geodesic: true,
-                                            strokeColor: '#0000FF',
+                                            strokeColor: window.mapColor3,
                                             strokeOpacity: 1.0,
                                             strokeWeight: 2
                                         });
                                         trazo1.setMap(map);
                                         trazo2.setMap(map);
                                         trazo3.setMap(map);
-
-
-
                                     }
 
 
@@ -385,23 +386,33 @@ session_start();
 
                                 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 
-
                             </div>
-                            <?PHP
-                            
-                            if(!empty($_SESSION["usuario"]) || isset($_GET["entro"]) == "si") {
-                                echo  '  <div class="CBB">
-                            <div class="checkroute">
-                                <input type="checkbox" name="routes" value="ruta1"  checked/> Ruta 1
-                            </div>
-                            <div class="checkroute">
-                                <input type="checkbox" name="routes" value="ruta2"  checked/> Ruta 2
-                            </div>
-                            <div class="checkroute">
-                                <input type="checkbox" name="routes" value="ruta3" checked/> Ruta 3
-                            </div>
-                          </div>';
-                            }
+                            <?php
+                                if(!empty($_SESSION["usuario"]) || isset($_GET["entro"]) == "si") { 
+                            ?>
+                                <div class="CBB">
+                                    <div>
+                                        <input type="button" value="Recargar" onclick="initMap()">
+                                    </div>
+                                    <div class="checkroute">
+                                        <input type="checkbox" name="routes1" value="ruta1" checked /> Ruta 1
+                                        <label for="colorPicker1">Color:</label>
+                                        <input id="colorPicker1"  type="text">
+                                    </div>
+                                    <div class="checkroute">
+                                        <input type="checkbox" name="routes2" value="ruta2" checked/> Ruta 2
+                                        <label for="colorPicker2">Color:</label>
+                                        <input id="colorPicker2" type="text">
+                                    </div>
+                                    <div class="checkroute">
+                                        <input type="checkbox" name="routes3" value="ruta3" checked/> Ruta 3
+                                        <label for="colorPicker3">Color:</label>
+                                        <input id="colorPicker3" type="text">
+                                    </div>
+                                </div>    
+    
+                            <?php
+                                }
                             ?>
                         </center>
                         
@@ -774,18 +785,42 @@ session_start();
 
         <!-- jQuery -->
         <script src="js/jquery.js"></script>
-        <script src="js/login.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jqColorPicker.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/jqBootstrapValidation.js"></script>
+        
+        <script>
+                $("#colorPicker3").colorPicker({
+                renderCallback: function () {
+                    window.mapColor3 = "#"+ this.color.colors.HEX ;
+                }
+                });
+          
+            
+            $("#colorPicker2").colorPicker({
+                renderCallback: function () {
+                    window.mapColor2 = "#" + this.color.colors.HEX;
+                }
+            });
+            $("#colorPicker1").colorPicker({
+                renderCallback: function () {
+                    window.mapColor1 = "#" + this.color.colors.HEX;
+                    initMap();
+                }
+            });
+        
+        </script>
+
+        <!--
+        <script src="js/login.js"></script>
+        -->
 
         <!-- Plugin JavaScript -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="js/classie.js"></script>
         <script src="js/cbpAnimatedHeader.js"></script>
 
         <!-- Contact Form JavaScript -->
-        <script src="js/jqBootstrapValidation.js"></script>
         <script src="js/contact_me.js"></script>
 
         <!-- Custom Theme JavaScript -->
@@ -794,5 +829,3 @@ session_start();
     </body>
 
 </html>
-
-

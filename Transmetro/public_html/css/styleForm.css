@@ -90,7 +90,7 @@ body{
 
 }
 .CBB{
-    //contenedor de checkbox
+    /* contenedor de checkbox */
     margin: 0 auto;
     
     height: 50px;
@@ -106,3 +106,5 @@ body{
     background: #F5ECCE;
     border-radius: 5px;
 }
+
+
